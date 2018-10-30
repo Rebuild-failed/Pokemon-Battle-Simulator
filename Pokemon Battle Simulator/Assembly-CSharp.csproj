@@ -62,10 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Scripts\Common\PManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Common\PManager\PublicDataManager.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PFileStream.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PPlatform.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PReflectUtil.cs" />
+    <Compile Include="Assets\Scripts\Common\PUtils\StringUtil.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CSVModel.cs" />
     <Compile Include="Assets\Scripts\Data\Models\ItemModel.cs" />
@@ -80,6 +82,8 @@
     <Compile Include="Assets\Scripts\Status\Statu.cs" />
     <Compile Include="Assets\Scripts\UI\Page\BasePage.cs" />
     <Compile Include="Assets\Scripts\UI\Page\EditPage.cs" />
+    <Compile Include="Assets\Scripts\UI\Page\Slot.cs" />
+    <Compile Include="Assets\Scripts\UI\Page\StartPage.cs" />
     <Compile Include="Assets\Scripts\UI\PageCollection.cs" />
     <Compile Include="Assets\Scripts\UI\UIDelegateManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />

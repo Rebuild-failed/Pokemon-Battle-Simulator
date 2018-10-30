@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Personality
 {
-    private PersonalityModel model;
-	
+    private readonly PersonalityModel model;
+    public Personality(PersonalityModel _model)
+    {
+        model = _model;
+    }
+    public PersonalityModel GetModel()
+    {
+        return model;
+    }
 }

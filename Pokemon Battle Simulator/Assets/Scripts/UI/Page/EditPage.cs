@@ -50,7 +50,7 @@ namespace RDUI
             foreach (int id in PublicDataManager.instance.GetPokemonModelKeys())
             {
                 string name = PublicDataManager.instance.GetPokemonModelNameCh(id);
-                string option = FormatIdName(id, name);
+                string option = StringUtil.FormatIdName(id, name);
                 pokemonDP.options.Add(new Dropdown.OptionData(option));
             }
             pokemonDP.onValueChanged.AddListener(delegate { OnSelectPokemon(); });
@@ -86,6 +86,34 @@ namespace RDUI
             saveBtn.onClick.AddListener(Save);
             base.Init();
         }
+        public override void Open()
+        {
+            Pokemon p = RuntimeData.GetCurrentMyPokemon();
+            if(p != null)
+            {
+                //再次编辑
+                //PokemonModel pModel = p.GetModel();
+                //if (pModel != null)
+                //{
+                //    pokemonDP.value = pokemonDP.options.FindIndex(t => t.text == StringUtil.FormatIdName(pModel.id, pModel.name_ch));
+                //    OnSelectPokemon();
+
+                //    CharacterModel pCh = p.GetCharacter().GetModel();
+                //    OnSelectCharacter(pCh.id);
+
+
+                //    PersonalityModel pPer = p.GetPersonality().GetModel();
+                //    personalityDP.value = personalityDP.options.FindIndex(t => t.text == pPer.name_ch);
+                //    OnSelectPersonality();
+
+                //}
+            }          
+            else
+            {
+                Reset();
+            }
+            base.Open();
+        }
         //选择Pokemon
         private void OnSelectPokemon()
         {
@@ -99,7 +127,7 @@ namespace RDUI
             {
                 int n = int.Parse(s);
                 string name = PublicDataManager.instance.GetCharacterModelNameCh(n);
-                charactersTemp.Add(FormatIdName(n, name));
+                charactersTemp.Add(StringUtil.FormatIdName(n, name));
             }
             characterDP.ClearOptions();
             characterDP.AddOptions(charactersTemp);
@@ -111,7 +139,7 @@ namespace RDUI
             {
                 int n = int.Parse(s);
                 string name = PublicDataManager.instance.GetSkillModelNameCh(n);
-                skillsTemp.Add(FormatIdName(n, name));
+                skillsTemp.Add(StringUtil.FormatIdName(n, name));
             }
             foreach (Dropdown d in skillDPs)
             {
@@ -192,7 +220,7 @@ namespace RDUI
             }
             else
             {
-                for(int i=0;i<skills.Length;i++)
+                for (int i = 0; i < skills.Length; i++)
                 {
                     skills[i] = PublicDataManager.instance.GetSkillModel(skillIds[i]);
                 }
@@ -209,32 +237,13 @@ namespace RDUI
                         case 5: pokemon.speed = int.Parse(abilityValueTexts[i].text); break;
                     }
                 }
-                Pokemon p = new Pokemon(pokemon,character,personality,item,skills);
+                Pokemon p = new Pokemon(pokemon, character, personality, item, skills);
                 RuntimeData.SetCurrentMyPokemon(p);
                 UIDelegateManager.NotifyUI(UIMessageType.RefreshParty, RuntimeData.GetCurrentIndex());
                 Close();
             }
         }
-        public override void Open()
-        {
-            Reset();
-            base.Open();
-        }
-        private string FormatIdName(int id, string name)
-        {
-            if (id < 10)
-            {
-                return string.Format("00{0} {1}", id, name);
-            }
-            else if (id < 100)
-            {
-                return string.Format("0{0} {1}", id, name);
-            }
-            else
-            {
-                return string.Format("{0} {1}", id, name);
-            }
-        }
+
         //更新能力值
         private void RefreshAbilityValue()
         {
@@ -284,6 +293,10 @@ namespace RDUI
         private void Reset()
         {
             //Pokemon及其特性、性格/携带物默认选中列表第一个
+            if (pokemonDP.value == 0)
+            {
+                OnSelectPokemon();
+            }
             pokemonDP.value = 0;
             characterDP.value = 0;
             personalityDP.value = 0;

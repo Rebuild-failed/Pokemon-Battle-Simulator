@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Character" Collapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Character\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PublicDataManager" Collapsed="true">
+    <Position X="12.25" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAgEBAAEAACEAAYAAMAABCAABBAAIPACYAAEQ=</HashCode>
+      <FileName>Assets\Scripts\Common\PManager\PublicDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PFileStream" Collapsed="true">
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Common\PUtils\PFileStream.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PPlatform" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAACAAAAAAIAEAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Common\PUtils\PPlatform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PReflectUtil" Collapsed="true">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Common\PUtils\PReflectUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterModel" Collapsed="true">
+    <Position X="9.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\CharacterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSVModel" Collapsed="true">
+    <Position X="5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\CSVModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemModel" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\ItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersonalityModel" Collapsed="true">
+    <Position X="2.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\PersonalityModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PokemonModel" Collapsed="true">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIABAAACABAAAAAAAAAAAAAAAAAQCAAABAAAAAAAM=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\PokemonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillModel" Collapsed="true">
+    <Position X="7.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAAGAAAAAAAAAAAAAAAAAAAAEBAAAAAAAIQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Data\Models\SkillModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RuntimeData" Collapsed="true">
+    <Position X="7" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgAAgACAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Data\RuntimeData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Items\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Personality" Collapsed="true">
+    <Position X="17.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Personality\Personality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pokemon">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIABAAAAgAAAAAAAQAAAAABAAAAAAAAAAgAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Pokemon\Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skill" Collapsed="true">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Skills\Skill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Statu" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Status\Statu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.BasePage">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAIAAAAIAAAAACAAAAAAAAAAACAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\BasePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.EditPage" Collapsed="true">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAICNIAAAAANAmhMoRAAAAAAIgiAAAAAAAiAAAgEwA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\EditPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.Slot" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\Slot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.StartPage" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAAAAgCAQAAgAA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\StartPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.PageCollection">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\PageCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.UIDelegateManager">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAhAAAAAAAAAAABAAAAQAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\UIDelegateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDUI.UIManager">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAACAgBIAAAAAACAABQAAAACAAAAAACAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="RDUI.PageType" Collapsed="true">
+    <Position X="8.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAQgAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\BasePage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RDUI.PageStatus" Collapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\Page\BasePage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RDUI.UIMessageType" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\UIDelegateManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="RDUI.UIMessageDelegate" Collapsed="true">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\UIDelegateManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

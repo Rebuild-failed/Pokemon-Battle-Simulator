@@ -18,4 +18,19 @@ public class SkillModel : CSVModel
     public int power { get; set; } //威力
     public int rate { get; set; }//命中
     public int pp { get; set; }
+    public SkillModel()
+    {
+
+    }
+    public SkillModel(SkillModel _source)
+    {
+        name_ch = _source.name_ch;
+        name_jp = _source.name_jp;
+        name_en = _source.name_en;
+        type = _source.type;
+        category = _source.category;
+        power = _source.power;
+        rate = _source.rate;
+        pp = _source.pp;
+    }
 }

@@ -93,7 +93,7 @@ public class PublicDataManager : MonoBehaviour
     }
     public PokemonModel GetPokemonModel(int id)
     {
-        return pokemonModel[id];
+        return new PokemonModel(pokemonModel[id]);
     }
     public string GetPokemonModelNameCh(int id)
     {
@@ -114,7 +114,7 @@ public class PublicDataManager : MonoBehaviour
     }
     public CharacterModel GetCharacterModel(int id)
     {
-        return characterModel[id];
+        return new CharacterModel(characterModel[id]);
     }
     public string GetCharacterModelNameCh(int id)
     {
@@ -128,7 +128,7 @@ public class PublicDataManager : MonoBehaviour
     }
     public PersonalityModel GetPersonalityModel(int id)
     {
-        return personalityModel[id];
+        return new PersonalityModel(personalityModel[id]);
     }
     public string GetPersonalityModelNameCh(int id)
     {
@@ -159,7 +159,7 @@ public class PublicDataManager : MonoBehaviour
     }
     public ItemModel GetItemModel(int id)
     {
-        return itemModel[id];
+        return new ItemModel(itemModel[id]);
     }
     public string GetItemModelNameCh(int id)
     {

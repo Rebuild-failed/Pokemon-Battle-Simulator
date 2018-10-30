@@ -11,9 +11,16 @@ public class RuntimeData
     {
         myPokemons[currentIndex] = _p;
     }
+    public static Pokemon GetCurrentMyPokemon()
+    {
+        return myPokemons[currentIndex];
+    }
     public static void SetCurrentIndex(int _index)
     {
-        currentIndex = _index;
+        if(_index>-1&&_index<myPokemons.Length)
+        {
+            currentIndex = _index;
+        }
     }
     public static int GetCurrentIndex()
     {

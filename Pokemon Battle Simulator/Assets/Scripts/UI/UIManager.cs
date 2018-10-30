@@ -40,21 +40,51 @@ namespace RDUI
         public void LoadPage(string _sceneName)
         {
             pages.Clear();
+            string pageStr = PageCollection.GetPages(_sceneName);
+            string[] names = pageStr.Split('|');
+            foreach (string s in names)
+            {
+                BasePage prefab = Resources.Load<BasePage>("Prefabs/UI/" + s);
+                Transform parent = null;
+                switch (prefab.pageType)
+                {
+                    case PageType.HUD: parent=uiHUD; break;
+                    case PageType.Page: parent=uiPage; break;
+                    case PageType.Float: parent=uiFloat; break;
+                    case PageType.PopUp: parent=uiPopUp; break;
+                    default: parent=uiPage; break;
+                }
+                BasePage page = Instantiate<BasePage>(prefab, parent);
+                pages.Add(s, page);
+            }
         }
         //打开Page
         public void OpenPage(string _pageName)
         {
-            pages[_pageName].Open();
+            if (pages.ContainsKey(_pageName))
+            {
+                pages[_pageName].Open();
+            }
         }
         //关闭Page
         public void ClosePage(string _pageName)
         {
-            pages[_pageName].Close();
+            if (pages.ContainsKey(_pageName))
+            {
+                pages[_pageName].Close();
+            }
         }
         //获取Page
         public BasePage GetPage(string _pageName)
         {
-            return pages[_pageName];
+            if (pages.ContainsKey(_pageName))
+            {
+                return pages[_pageName];
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

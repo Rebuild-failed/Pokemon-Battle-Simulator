@@ -11,6 +11,10 @@ public class RuntimeData
     {
         myPokemons[currentIndex] = _p;
     }
+    public static Pokemon GetMyPokemonByIndex(int _index)
+    {
+        return myPokemons[_index];
+    }
     public static Pokemon GetCurrentMyPokemon()
     {
         return myPokemons[currentIndex];

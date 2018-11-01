@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class StringUtil
 {
-    public static string FormatId(int id)
+    //格式化ID
+    public static string FormatId(int _id)
     {
-        if (id < 10)
+        if (_id < 10)
         {
-            return string.Format("00{0}", id);
+            return string.Format("00{0}", _id);
         }
-        else if (id < 100)
+        else if (_id < 100)
         {
-            return string.Format("0{0}", id);
+            return string.Format("0{0}", _id);
         }
         else
         {
-            return string.Format("{0}", id);
+            return string.Format("{0}", _id);
         }
     }
-    public static string FormatIdName(int id, string name)
+    //格式化ID 名称
+    public static string FormatIdName(int _id, string _name)
     {
-        if (id < 10)
+        if (_id < 10)
         {
-            return string.Format("00{0} {1}", id, name);
+            return string.Format("00{0} {1}", _id, _name);
         }
-        else if (id < 100)
+        else if (_id < 100)
         {
-            return string.Format("0{0} {1}", id, name);
+            return string.Format("0{0} {1}", _id, _name);
         }
         else
         {
-            return string.Format("{0} {1}", id, name);
+            return string.Format("{0} {1}", _id, _name);
         }
     }
 }

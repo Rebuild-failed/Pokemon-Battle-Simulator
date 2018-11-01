@@ -40,15 +40,17 @@ namespace RDUI
         }
         private void OnClickJoinBtn()
         {
-
+            PNetworkManager.LanGame(1);
+            createBtn.gameObject.SetActive(false);
         }
         private void OnClickCreatBtn()
         {
-
+            PNetworkManager.LanGame(0);
+            joinBtn.gameObject.SetActive(false);
         }
         private void OnClickExitBtn()
         {
-
+            
         }
         private void RefreshCurrentParty(object _index)
         {

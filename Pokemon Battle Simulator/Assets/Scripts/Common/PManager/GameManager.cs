@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RDUI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour {
     {
         UIManager.instance.LoadPage(SceneManager.GetActiveScene().name);
         UIManager.instance.OpenPage(PageCollection.StartPage);
+        
+      
 	}
 	
 	// Update is called once per frame

@@ -4,7 +4,10 @@ namespace RDUI
 {
     public enum UIMessageType
     {
-        RefreshParty
+        RefreshParty,
+        RefreshMyHpText,
+        RefreshMyHpBar,
+        RefreshOpponentHpBar
     }
     public delegate void UIMessageDelegate(object _args);
 

@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Data\Models\SkillModel.cs" />
     <Compile Include="Assets\Scripts\Data\RuntimeData.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Net\PNetworkDiscovery.cs" />
     <Compile Include="Assets\Scripts\Personality\Personality.cs" />
     <Compile Include="Assets\Scripts\Pokemon\Pokemon.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />

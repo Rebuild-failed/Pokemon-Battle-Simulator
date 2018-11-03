@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class BattleStartMessage : MessageBase
 {
     public static readonly short type = 100;
+    public int index;
     public int pokemonId;
     public int hpAv;
     public int attackAv;
@@ -17,8 +18,13 @@ public class BattleStartMessage : MessageBase
     public int personalityId;
     public int itemId;
     public int[] skillIds = new int[4];
-    public BattleStartMessage(Pokemon _pokemon)
+    public BattleStartMessage()
     {
+
+    }
+    public BattleStartMessage(Pokemon _pokemon,int _index)
+    {
+        index = _index;
         PokemonModel pM = _pokemon.GetModel();
         CharacterModel cM = _pokemon.GetCharacter().GetModel();
         PersonalityModel perM = _pokemon.GetPersonality().GetModel();

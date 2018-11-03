@@ -141,13 +141,14 @@ namespace RDUI
                 string name = PublicDataManager.instance.GetSkillModelNameCh(n);
                 skillsTemp.Add(StringUtil.FormatIdName(n, name));
             }
-            foreach (Dropdown d in skillDPs)
+            for(int i=0;i< skillDPs.Length;i++)
             {
-                d.ClearOptions();
-                d.AddOptions(skillsTemp);
-                d.value = 0;
-                d.RefreshShownValue();
+                skillDPs[i].ClearOptions();
+                skillDPs[i].AddOptions(skillsTemp);
+                skillDPs[i].value = i;
+                skillDPs[i].RefreshShownValue();
             }
+            RefreshAbilityValue();
         }
         private void OnSelectCharacter(int id)
         {
@@ -238,8 +239,9 @@ namespace RDUI
                     }
                 }
                 Pokemon p = new Pokemon(pokemon, character, personality, item, skills);
+                p.isMe = true;
                 RuntimeData.SetCurrentMyPokemon(p);
-                UIDelegateManager.NotifyUI(UIMessageType.RefreshParty, RuntimeData.GetCurrentIndex());
+                UIDelegateManager.NotifyUI(UIMessageType.RefreshParty, RuntimeData.GetCurrentMyIndex());
                 Close();
             }
         }

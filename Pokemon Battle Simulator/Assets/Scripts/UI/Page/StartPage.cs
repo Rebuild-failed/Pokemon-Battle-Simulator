@@ -35,16 +35,22 @@ namespace RDUI
         }
         private void OnClickSlot(int _index)
         {
-            RuntimeData.SetCurrentIndex(_index);
+            RuntimeData.SetCurrentMyIndex(_index);
             UIManager.instance.OpenPage(PageCollection.EditPage);
         }
         private void OnClickJoinBtn()
         {
-
+            PNetworkManager.LanGame(1);
         }
         private void OnClickCreatBtn()
         {
-
+            if (!RuntimeData.IsMyPokemonsFull())
+            {
+                return;
+            }
+            RuntimeData.SetCurrentMyIndex(0);
+            RuntimeData.SetCurrentOppIndex(0);
+            PNetworkManager.LanGame(0);
         }
         private void OnClickExitBtn()
         {

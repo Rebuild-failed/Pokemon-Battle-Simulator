@@ -8,15 +8,14 @@ public class PNetworkDiscovery : NetworkDiscovery
 
     public override void OnReceivedBroadcast(string fromAddress, string data)
     {
-        if(isClient)
-        {
-            if (running)
+        if (isClient)
+        {        
+            if(!PNetworkManager.instance.IsClientConnected())
             {
-                StopBroadcast();
+                PNetworkManager.instance.networkAddress = fromAddress;
+                PNetworkManager.instance.networkPort = 7777;
+                PNetworkManager.instance.client = PNetworkManager.instance.StartClient();
             }
-            PNetworkManager.singleton.networkAddress = fromAddress;
-            PNetworkManager.singleton.networkPort = 7777;
-            PNetworkManager.singleton.client=PNetworkManager.singleton.StartClient();
         }
     }
 

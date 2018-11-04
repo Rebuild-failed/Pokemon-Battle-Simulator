@@ -14,6 +14,7 @@ namespace RDUI
         public Button pokemonBtn;
         public Button pokemonReturnBtn;
         public GameObject pokemonPanel;
+        public Button giveUpBtn;
         public BattleState myState;
         public BattleState opponentState;
         protected override void Init()
@@ -22,6 +23,7 @@ namespace RDUI
             skillReturnBtn.onClick.AddListener(OnClickSkillReturnBtn);
             pokemonBtn.onClick.AddListener(OnClickPokemonBtn);
             pokemonReturnBtn.onClick.AddListener(OnClickPokemonReturnBtn);
+            giveUpBtn.onClick.AddListener(OnClickGiveUpBtn);
             base.Init();
         }
         public override void Open()
@@ -121,6 +123,10 @@ namespace RDUI
         {
             pokemonPanel.SetActive(false);
             selectPanel.SetActive(true);
+        }
+        public void OnClickGiveUpBtn()
+        {
+            PNetworkManager.instance.GiveUp();
         }
     }
 

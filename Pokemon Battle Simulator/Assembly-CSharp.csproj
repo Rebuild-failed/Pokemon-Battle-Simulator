@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Common\PUtils\StringUtil.cs" />
     <Compile Include="Assets\Scripts\Data\Messages\BattleStartMessage.cs" />
     <Compile Include="Assets\Scripts\Data\Messages\ChangePokemonMessage.cs" />
+    <Compile Include="Assets\Scripts\Data\Messages\GiveUpMessage.cs" />
     <Compile Include="Assets\Scripts\Data\Messages\UseSkillMessage.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CSVModel.cs" />

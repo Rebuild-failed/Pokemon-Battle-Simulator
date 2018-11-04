@@ -234,7 +234,7 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 158cc2682c6697b4350ac5a4b05bc581 Assembly-CSharp.dll:RDUI.StartPage
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 b71522fa4e3c4525bc8dc90a0a337baf Assembly-CSharp.dll:RDUI.BattleState
-e8dbfda16fb7706928d6a45985af6d97 Assembly-CSharp.dll:RDUI.BattlePage
+fba06c89c7a40f97cc1cf013da81abe8 Assembly-CSharp.dll:RDUI.BattlePage
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh

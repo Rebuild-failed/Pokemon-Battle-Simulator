@@ -40,7 +40,7 @@ namespace RDUI
         }
         private void OnClickJoinBtn()
         {
-            PNetworkManager.LanGame(1);
+            PNetworkManager.instance.LanGame(1);
         }
         private void OnClickCreatBtn()
         {
@@ -48,9 +48,7 @@ namespace RDUI
             {
                 return;
             }
-            RuntimeData.SetCurrentMyIndex(0);
-            RuntimeData.SetCurrentOppIndex(0);
-            PNetworkManager.LanGame(0);
+            PNetworkManager.instance.LanGame(0);
         }
         private void OnClickExitBtn()
         {

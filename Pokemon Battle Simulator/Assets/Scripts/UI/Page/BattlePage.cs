@@ -36,20 +36,25 @@ namespace RDUI
                 //更换Pokemon
                 slots[i].gameObject.GetComponent<Button>().onClick.AddListener(() =>
                 {
+                    PNetworkManager.instance.ChangePokemon(index);
                     RuntimeData.SetCurrentMyIndex(index);
-                    ChangePokemon(RuntimeData.GetCurrentMyPokemon(), true);
                 });
             }
-            //默认第一个Pokemon先上场
-            ChangePokemon(RuntimeData.GetCurrentMyPokemon(),true);
-            ChangePokemon(RuntimeData.GetCurrentOppPokemon(), false);
+
+            UIDelegateManager.AddObserver(UIMessageType.RefreshBattlePokemon, ChangePokemon);
             UIDelegateManager.AddObserver(UIMessageType.RefreshMyHpText, RefreshMyHpText);
             UIDelegateManager.AddObserver(UIMessageType.RefreshMyHpBar, RefreshMyHpBar);
             UIDelegateManager.AddObserver(UIMessageType.RefreshOpponentHpBar, RefreshOpponentHpBar);
+
+            //默认第一个Pokemon先上场
+            RuntimeData.SetCurrentMyIndex(0);
+            RuntimeData.SetCurrentOppIndex(0);
             base.Open();
         }
         public override void Close()
         {
+
+            UIDelegateManager.RemoveObserver(UIMessageType.RefreshBattlePokemon, ChangePokemon);
             UIDelegateManager.RemoveObserver(UIMessageType.RefreshMyHpText, RefreshMyHpText);
             UIDelegateManager.RemoveObserver(UIMessageType.RefreshMyHpBar, RefreshMyHpBar);
             UIDelegateManager.RemoveObserver(UIMessageType.RefreshOpponentHpBar, RefreshOpponentHpBar);
@@ -67,24 +72,35 @@ namespace RDUI
         {
             opponentState.SetHpBar((float)_value);
         }
-        //更换精灵，0自己 其它为对手
-        public void ChangePokemon(Pokemon _pokemon, bool _isMyPokemon)
+        //更换精灵 object为Pokemon
+        public void ChangePokemon(object _pokmeon)
         {
-            PokemonModel pModel = _pokemon.GetModel();
-            Sprite statuImg = null;
-            //if (_pokemon.GetStatu() != null)
-            //{
-            //   statuImg=Resources.Load<Sprite>()
-            //}
-            if (_isMyPokemon)
+            Pokemon p = (_pokmeon as Pokemon);
+            if (p != null)
             {
-                myState.SetProperty(pModel.name_ch, pModel.hp, _pokemon.CurrentHp, statuImg);
+                PokemonModel pModel = p.GetModel();
+                if (pModel != null)
+                {
+                    Sprite statuImg = null;
+                    //if (_pokemon.GetStatu() != null)
+                    //{
+                    //   statuImg=Resources.Load<Sprite>()
+                    //}
+                    if (p.isMe)
+                    {
+                        myState.SetProperty(pModel.name_ch, pModel.hp, p.CurrentHp, statuImg);
+                    }
+                    else
+                    {
+                        opponentState.SetProperty(pModel.name_ch, pModel.hp, p.CurrentHp, statuImg);
+                    }
+                }
+
             }
             else
             {
-                opponentState.SetProperty(pModel.name_ch, pModel.hp, _pokemon.CurrentHp, statuImg);
+                Debug.LogError("ChangePokemon is null");
             }
-
         }
         public void OnClickSkillBtn()
         {

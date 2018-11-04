@@ -7,10 +7,12 @@ public class ChangePokemonMessage : MessageBase
 {
     public static readonly short type=101;
     public int index;
-    public int pokemonId;
-    public ChangePokemonMessage(int _index,int _id)
+    public ChangePokemonMessage()
+    {
+
+    }
+    public ChangePokemonMessage(int _index)
     {
         index = _index;
-        pokemonId = _id;
     }
 }

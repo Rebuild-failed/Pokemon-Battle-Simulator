@@ -5,6 +5,7 @@ namespace RDUI
     public enum UIMessageType
     {
         RefreshParty,
+        RefreshBattlePokemon,
         RefreshMyHpText,
         RefreshMyHpBar,
         RefreshOpponentHpBar

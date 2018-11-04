@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using RDUI;
 
 public class RuntimeData
 {
@@ -25,6 +25,7 @@ public class RuntimeData
         if(_index>-1&&_index<myPokemons.Length)
         {
             currentMyIndex = _index;
+            UIDelegateManager.NotifyUI(UIMessageType.RefreshBattlePokemon, myPokemons[currentMyIndex]);
         }
     }
     public static int GetCurrentMyIndex()
@@ -33,19 +34,22 @@ public class RuntimeData
     }
     public static bool IsMyPokemonsFull()
     {
-        if (myPokemons.Length == 6)
+        for (int i = 0; i < 6; i++)
         {
-            return true;
+            if (myPokemons[i] == null)
+            {
+                return false;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return true;
     }
-
-    public static void SetCurrentOppPokemon(Pokemon _p)
+    public static void SetOppPokemon(int _index, Pokemon _p)
     {
-        oppPokemons[currentOppIndex] = _p;
+        if (_index > -1 && _index < oppPokemons.Length)
+        {
+            currentOppIndex = _index;
+            oppPokemons[_index] = _p;
+        }
     }
     public static Pokemon GetOppPokemonByIndex(int _index)
     {
@@ -60,6 +64,7 @@ public class RuntimeData
         if (_index > -1 && _index < oppPokemons.Length)
         {
             currentOppIndex = _index;
+            UIDelegateManager.NotifyUI(UIMessageType.RefreshBattlePokemon, oppPokemons[currentOppIndex]);
         }
     }
     public static int GetCurrentOppIndex()
@@ -68,14 +73,14 @@ public class RuntimeData
     }
     public static bool IsOppPokemonsFull()
     {
-        if (oppPokemons.Length == 6)
+        for(int i=0;i<6;i++)
         {
-            return true;
+            if(oppPokemons[i] == null)
+            {
+                return false;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return true;
     }
 
 }

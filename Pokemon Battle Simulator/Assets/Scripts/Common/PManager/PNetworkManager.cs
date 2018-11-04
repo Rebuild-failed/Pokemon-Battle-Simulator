@@ -6,10 +6,17 @@ using RDUI;
 
 public class PNetworkManager : NetworkManager
 {
-
-    public static void LanGame(int _model)
+    public static PNetworkManager instance;
+    private void Start()
     {
-        singleton.StartCoroutine((singleton as PNetworkManager).DiscoverNetwork(_model));
+        if (instance == null)
+            instance = (singleton as PNetworkManager);
+        else if (instance != this)
+            Destroy(gameObject);     
+    }
+    public void LanGame(int _model)
+    {
+        StartCoroutine(DiscoverNetwork(_model));
     }
     //0:创建房间 1:加入房间
     private IEnumerator DiscoverNetwork(int _model)
@@ -43,12 +50,14 @@ public class PNetworkManager : NetworkManager
     {
         Debug.Log("Server Register");
         NetworkServer.RegisterHandler(BattleStartMessage.type, OnBattleStartMessage);
+        NetworkServer.RegisterHandler(ChangePokemonMessage.type, OnChangePokemon);
         base.OnStartServer();
     }
     public override void OnStartClient(NetworkClient client)
     {
         Debug.Log("Client Register");
         client.RegisterHandler(BattleStartMessage.type, OnBattleStartMessage);
+        client.RegisterHandler(ChangePokemonMessage.type, OnChangePokemon);
         base.OnStartClient(client);
     }
     public override void OnServerReady(NetworkConnection conn)
@@ -74,7 +83,21 @@ public class PNetworkManager : NetworkManager
         }
         base.OnClientConnect(conn);
     }
-    private  void OnBattleStartMessage(NetworkMessage netMsg)
+    //更换精灵
+    public  void ChangePokemon(int _index)
+    {
+        ChangePokemonMessage msg = new ChangePokemonMessage(_index);
+        if (NetworkServer.active)
+        {          
+            NetworkServer.SendToAll(ChangePokemonMessage.type, msg);
+        }
+        else
+        {
+            client.Send(ChangePokemonMessage.type, msg);
+        }
+    }
+    //回调-初始化对方阵容
+    private void OnBattleStartMessage(NetworkMessage netMsg)
     {
         netMsg.reader.SeekZero();
         BattleStartMessage msg = netMsg.ReadMessage<BattleStartMessage>();
@@ -95,12 +118,18 @@ public class PNetworkManager : NetworkManager
             sModel[i] = PublicDataManager.instance.GetSkillModel(msg.skillIds[i]);
         }
         Pokemon p = new Pokemon(pModel, cModel, perModel, iModel, sModel);
-        RuntimeData.SetCurrentOppIndex(msg.index);
-        RuntimeData.SetCurrentOppPokemon(p);
-        if(RuntimeData.IsOppPokemonsFull())
+        RuntimeData.SetOppPokemon(msg.index,p);
+        if (RuntimeData.IsOppPokemonsFull())
         {
             UIManager.instance.ClosePage(PageCollection.StartPage);
             UIManager.instance.OpenPage(PageCollection.BattlePage);
         }
+    }
+    //回调-更换精灵
+    private void OnChangePokemon(NetworkMessage netMsg)
+    {
+        netMsg.reader.SeekZero();
+        ChangePokemonMessage msg = netMsg.reader.ReadMessage<ChangePokemonMessage>();
+        RuntimeData.SetCurrentOppIndex(msg.index);
     }
 }

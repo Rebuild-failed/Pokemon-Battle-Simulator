@@ -168,3 +168,4 @@ F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator\Temp\bin\Debug\UnityEngine.
 F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator\obj\Debug\Assembly-CSharp.dll
 F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator\obj\Debug\Assembly-CSharp.pdb
+F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator\Temp\bin\Debug\Newtonsoft.Json.dll

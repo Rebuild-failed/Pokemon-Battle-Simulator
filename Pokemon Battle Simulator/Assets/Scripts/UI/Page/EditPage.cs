@@ -3,6 +3,7 @@
   *Date:  2018-10-18
   *Description: 编辑阵容页面
 **********************************************************************************/
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace RDUI
         public Text sumText;
         public Dropdown[] skillDPs;
         public Image pokemonImage;
+        public Image pokemonTypeImage0;
+        public Image pokemonTypeImage1;
         public Text[] abilityValueTexts;
         public Button cancelBtn;
         public Button saveBtn;
@@ -89,25 +92,10 @@ namespace RDUI
         public override void Open()
         {
             Pokemon p = RuntimeData.GetCurrentMyPokemon();
-            if(p != null)
+            if (p != null)
             {
-                //再次编辑
-                //PokemonModel pModel = p.GetModel();
-                //if (pModel != null)
-                //{
-                //    pokemonDP.value = pokemonDP.options.FindIndex(t => t.text == StringUtil.FormatIdName(pModel.id, pModel.name_ch));
-                //    OnSelectPokemon();
-
-                //    CharacterModel pCh = p.GetCharacter().GetModel();
-                //    OnSelectCharacter(pCh.id);
-
-
-                //    PersonalityModel pPer = p.GetPersonality().GetModel();
-                //    personalityDP.value = personalityDP.options.FindIndex(t => t.text == pPer.name_ch);
-                //    OnSelectPersonality();
-
-                //}
-            }          
+                InitFromPokmeon(p);
+            }
             else
             {
                 Reset();
@@ -120,6 +108,16 @@ namespace RDUI
             string id = pokemonDP.captionText.text.Substring(0, 3);
             pokemon = PublicDataManager.instance.GetPokemonModel(int.Parse(id));
             pokemonImage.sprite = Resources.Load<Sprite>("PokemonSprites/" + id + "/Front/IMG00000");
+            pokemonTypeImage0.sprite = Resources.Load<Sprite>(StringUtil.GetTypeUrl(pokemon.type_1));
+            if (pokemon.type_2 == string.Empty)
+            {
+                pokemonTypeImage1.gameObject.SetActive(false);
+            }
+            else
+            {
+                pokemonTypeImage1.sprite = Resources.Load<Sprite>(StringUtil.GetTypeUrl(pokemon.type_2));
+                pokemonTypeImage1.gameObject.SetActive(true);
+            }
             //特性
             charactersTemp.Clear();
             string[] chIds = PublicDataManager.instance.GetCharacterIds(pokemon.id).Split('|');
@@ -141,7 +139,7 @@ namespace RDUI
                 string name = PublicDataManager.instance.GetSkillModelNameCh(n);
                 skillsTemp.Add(StringUtil.FormatIdName(n, name));
             }
-            for(int i=0;i< skillDPs.Length;i++)
+            for (int i = 0; i < skillDPs.Length; i++)
             {
                 skillDPs[i].ClearOptions();
                 skillDPs[i].AddOptions(skillsTemp);
@@ -239,9 +237,8 @@ namespace RDUI
                     }
                 }
                 Pokemon p = new Pokemon(pokemon, character, personality, item, skills);
-                p.isMe = true;
+                p.isMine = true;
                 RuntimeData.SetCurrentMyPokemon(p);
-                UIDelegateManager.NotifyUI(UIMessageType.RefreshParty, RuntimeData.GetCurrentMyIndex());
                 Close();
             }
         }
@@ -288,6 +285,98 @@ namespace RDUI
                             }
                         }
                         abilityValueTexts[i].text = aV.ToString();
+                    }
+                }
+            }
+        }
+        private void InitFromPokmeon(Pokemon _p)
+        {
+            PokemonModel pModel = _p.Model;
+            if (pModel != null)
+            {
+                pokemonDP.value = pokemonDP.options.FindIndex(t => t.text == StringUtil.FormatIdName(pModel.id, pModel.name_ch));
+                OnSelectPokemon();
+
+                if (_p.Character != null)
+                {
+                    CharacterModel pCh = _p.Character.Model;
+                    if (pCh != null)
+                    {
+                        characterDP.value = characterDP.options.FindIndex(t => t.text == StringUtil.FormatIdName(pCh.id, pCh.name_ch));
+                        OnSelectCharacter(pCh.id);
+                    }
+                }
+                if (_p.Personality != null)
+                {
+                    PersonalityModel pPer = _p.Personality.Model;
+                    if (pPer != null)
+                    {
+                        personalityDP.value = personalityDP.options.FindIndex(t => t.text == pPer.name_ch);
+                        OnSelectPersonality();
+                    }
+                }
+                if (_p.Item != null)
+                {
+                    ItemModel pI = _p.Item.Model;
+                    if (pI != null)
+                    {
+                        itemDP.value = itemDP.options.FindIndex(t => t.text == pI.name_ch);
+                    }
+                    OnSelectItem();
+                }
+                //能力值,根据能力值计算努力值
+                PokemonModel initModel = PublicDataManager.instance.GetPokemonModel(pModel.id);
+                for (int i = 0; i < abilityValueTexts.Length; i++)
+                {
+                    int baseV = 0;
+                    float av = 0f;
+                    switch (i)
+                    {
+                        case 0: av = pModel.hp; baseV = initModel.hp; abilityValueTexts[i].text = pModel.hp.ToString(); break;
+                        case 1: av = pModel.attack; baseV = initModel.attack; abilityValueTexts[i].text = pModel.attack.ToString(); break;
+                        case 2: av = pModel.defense; baseV = initModel.defense; abilityValueTexts[i].text = pModel.defense.ToString(); break;
+                        case 3: av = pModel.sp_attack; baseV = initModel.sp_attack; abilityValueTexts[i].text = pModel.sp_attack.ToString(); break;
+                        case 4: av = pModel.sp_defense; baseV = initModel.sp_defense; abilityValueTexts[i].text = pModel.sp_defense.ToString(); break;
+                        case 5: av = pModel.speed; baseV = initModel.speed; abilityValueTexts[i].text = pModel.speed.ToString(); break;
+                    }
+                    //性格修正恢复,存在0-4点误差
+                    if (i != 0)
+                    {
+                        if (_p.Personality != null)
+                        {
+                            if (i == personality.enhance)
+                            {
+                                av = (av / 1.1f);
+                            }
+                            else if (i == personality.reduce)
+                            {
+                                av = (av / 0.9f);
+                            }
+                        }
+                    }
+                    //HP
+                    if (i == 0)
+                    {
+                        int hpEv = Mathf.RoundToInt(4 * ((((av - MAX_LVL - 10) * 100f) / (float)MAX_LVL) - MAX_PRE_IV - 2 * baseV));
+                        effectValueIFs[i].text = hpEv.ToString();
+                    }
+                    else
+                    {
+                        int otherEv = Mathf.RoundToInt(4 * (((av - 5) * 100f / (float)MAX_LVL) - MAX_PRE_IV - 2 * baseV));
+                        effectValueIFs[i].text = otherEv.ToString();
+                    }
+                }
+                //技能
+                if (_p.Skills != null)
+                {
+                    for (int i = 0; i < _p.Skills.Length; i++)
+                    {
+                        SkillModel pSk = _p.Skills[i].Model;
+                        if (pSk != null)
+                        {
+                            skillDPs[i].value = skillDPs[i].options.FindIndex(t => t.text == StringUtil.FormatIdName(pSk.id, pSk.name_ch));
+                            OnSelectSkill();
+                        }
                     }
                 }
             }

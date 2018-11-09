@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Personality
 {
-    private readonly PersonalityModel model;
+    private  PersonalityModel model;
+    public PersonalityModel Model
+    {
+        set
+        {
+            if (value != null)
+            {
+                model = value;
+            }
+        }
+        get
+        {
+            return model;
+        }
+    }
     public Personality(PersonalityModel _model)
     {
         model = _model;
-    }
-    public PersonalityModel GetModel()
-    {
-        return model;
     }
 }

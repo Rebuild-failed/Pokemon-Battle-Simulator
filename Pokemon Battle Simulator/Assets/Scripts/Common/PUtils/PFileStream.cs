@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class PFileStream
 {
@@ -39,5 +40,38 @@ public class PFileStream
             }
         }
         return result;
+    }
+    //保存阵容-暂时全部保存，可优化为保存id和能力值
+    public static void SavePokemonToJsonFile()
+    {
+        string url = PPlatform.SplitPath(new string[] { PPlatform.DATA_PATH, "Save", "pokemons.json"});
+        FileStream fs = new FileStream(url, FileMode.Create);
+        using (StreamWriter jsonWriter = new StreamWriter(fs))
+        {
+            JsonSerializer serializer = new JsonSerializer();            
+            serializer.Serialize(jsonWriter, RuntimeData.GetMyPokemons());
+        }
+        fs.Close();
+    }
+    //加载阵容
+    public static void LoadPokemonFromJsonFile()
+    {
+        string url = PPlatform.SplitPath(new string[] { PPlatform.DATA_PATH, "Save", "pokemons.json" });
+
+        FileStream fs = new FileStream(url, FileMode.OpenOrCreate);
+        using (StreamReader jsonReader = new StreamReader(fs))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            Pokemon[] p = (Pokemon[])serializer.Deserialize(jsonReader, typeof(Pokemon[]));
+            if(p != null)
+            {
+                for (int i = 0; i < RuntimeData.PARTY_NUM; i++)
+                {
+                    RuntimeData.SetCurrentMyIndex(i);
+                    RuntimeData.SetCurrentMyPokemon(p[i]);
+                }
+            }
+        }
+        fs.Close();
     }
 }

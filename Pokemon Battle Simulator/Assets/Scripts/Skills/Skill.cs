@@ -4,17 +4,42 @@ using UnityEngine;
 
 public class Skill
 {
-    public SkillModel model;
+    private SkillModel model;
+    public SkillModel Model
+    {
+        set
+        {
+            if (value != null)
+            {
+                model = value;
+            }
+        }
+        get
+        {
+            return model;
+        }
+    }
     public Skill(SkillModel _model)
     {
         model = _model;
     }
-    public SkillModel GetModel()
+    public virtual void Do(bool isMe)
     {
-        return model;
-    }
-    public virtual void Do()
-    {
-
+        if(isMe)
+        {
+            Pokemon oppPokemon = RuntimeData.GetCurrentOppPokemon();
+            if (model.power > 0)
+            {
+                oppPokemon.CurrentHp -= model.power;
+            }
+        }
+        else
+        {
+            Pokemon myPokemon = RuntimeData.GetCurrentMyPokemon();
+            if (model.power > 0)
+            {
+                myPokemon.CurrentHp -= model.power;
+            }
+        }
     }
 }

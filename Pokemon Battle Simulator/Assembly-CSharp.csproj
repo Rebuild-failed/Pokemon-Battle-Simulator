@@ -62,17 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\Character.cs" />
-    <Compile Include="Assets\Scripts\Common\PManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Common\PManager\PNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Common\PManager\PublicDataManager.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PFileStream.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PPlatform.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\PReflectUtil.cs" />
     <Compile Include="Assets\Scripts\Common\PUtils\StringUtil.cs" />
-    <Compile Include="Assets\Scripts\Data\Messages\BattleStartMessage.cs" />
-    <Compile Include="Assets\Scripts\Data\Messages\ChangePokemonMessage.cs" />
-    <Compile Include="Assets\Scripts\Data\Messages\GiveUpMessage.cs" />
-    <Compile Include="Assets\Scripts\Data\Messages\UseSkillMessage.cs" />
+    <Compile Include="Assets\Scripts\Common\StartGame.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Data\Models\CSVModel.cs" />
     <Compile Include="Assets\Scripts\Data\Models\ItemModel.cs" />
@@ -81,8 +77,14 @@
     <Compile Include="Assets\Scripts\Data\Models\SkillModel.cs" />
     <Compile Include="Assets\Scripts\Data\RuntimeData.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Net\Messages\BattleStartMessage.cs" />
+    <Compile Include="Assets\Scripts\Net\Messages\BeginBattleOrderMessage.cs" />
+    <Compile Include="Assets\Scripts\Net\Messages\ChangePokemonMessage.cs" />
+    <Compile Include="Assets\Scripts\Net\Messages\GiveUpMessage.cs" />
+    <Compile Include="Assets\Scripts\Net\Messages\UseSkillMessage.cs" />
     <Compile Include="Assets\Scripts\Net\PNetworkDiscovery.cs" />
     <Compile Include="Assets\Scripts\Personality\Personality.cs" />
+    <Compile Include="Assets\Scripts\Pokemon\JsonTest.cs" />
     <Compile Include="Assets\Scripts\Pokemon\Pokemon.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\Status\Statu.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Assets\Scripts\UI\Page\BattlePage.cs" />
     <Compile Include="Assets\Scripts\UI\Page\BattleState.cs" />
     <Compile Include="Assets\Scripts\UI\Page\EditPage.cs" />
+    <Compile Include="Assets\Scripts\UI\Page\SkillBlock.cs" />
     <Compile Include="Assets\Scripts\UI\Page\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\Page\StartPage.cs" />
     <Compile Include="Assets\Scripts\UI\PageCollection.cs" />
@@ -308,6 +311,9 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Unity3D/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>F:/Pokemon-Battle-Simulator/Pokemon Battle Simulator/Assets/Plgins/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/dotaboy/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

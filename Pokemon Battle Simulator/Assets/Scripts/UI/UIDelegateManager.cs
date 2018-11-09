@@ -5,17 +5,25 @@ namespace RDUI
     public enum UIMessageType
     {
         RefreshParty,
+        CreateRoomSucceed,
+        SearchRoom,
         RefreshBattlePokemon,
         RefreshMyHpText,
         RefreshMyHpBar,
-        RefreshOpponentHpBar
+        RefreshOpponentHpBar,
+        BeginBattleOrder,
+        UseSkill,
+        ChangePokemon,
+        PokemonCantFight,
+        GiveUp,
+        OpponentInterrupted
     }
-    public delegate void UIMessageDelegate(object _args);
+    public delegate void UIMessageDelegate(object[] _args);
 
     public static class UIDelegateManager
     {
         private static Dictionary<UIMessageType, UIMessageDelegate> messageDelegates = new Dictionary<UIMessageType, UIMessageDelegate>();
-        public static void NotifyUI(UIMessageType _messageType, object _value)
+        public static void NotifyUI(UIMessageType _messageType, object[] _value)
         {
             if (messageDelegates.ContainsKey(_messageType))
             {

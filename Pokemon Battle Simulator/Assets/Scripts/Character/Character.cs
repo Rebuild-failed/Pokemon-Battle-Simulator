@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class Character
 {
-    private readonly CharacterModel model;
+    private CharacterModel model;
+    public CharacterModel Model
+    {
+        set
+        {
+            if(value != null)
+            {
+                model = value;
+            }
+        }
+        get
+        {
+            return model;
+        }
+    }
     public Character(CharacterModel _model)
     {
         model = _model;
-    }
-    public CharacterModel GetModel()
-    {
-        return model;
     }
     public virtual void Do()
     {
 
     }
-	
+
 }

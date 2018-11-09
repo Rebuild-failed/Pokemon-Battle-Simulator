@@ -15,12 +15,12 @@ namespace RDUI
         public Text currentHPText;
         public Text currentHPShadowText;
 
-        public void SetProperty(string _name, int _maxHp,int _currentHp, Sprite _img)
+        public void SetProperty(string _name, int _maxHp, int _currentHp, Sprite _img)
         {
             SetName(_name);
             SetCurrentHP(_currentHp);
             SetMaxHP(_maxHp);
-            SetHpBar((float)_currentHp/(float)_maxHp);
+            SetHpBar((float)_currentHp / (float)_maxHp);
             SetStatuImg(_img);
         }
         public void SetName(string _name)
@@ -30,22 +30,26 @@ namespace RDUI
         }
         public void SetMaxHP(int _maxHp)
         {
-            if(maxHPText)
+            if (maxHPText)
             {
                 maxHPText.text = _maxHp.ToString();
             }
-            if(maxHPShdowText)
+            if (maxHPShdowText)
             {
                 maxHPShdowText.text = _maxHp.ToString();
             }
         }
         public void SetCurrentHP(int _hp)
         {
-            if(currentHPText)
+            if (_hp < 0)
+            {
+                _hp = 0;
+            }
+            if (currentHPText)
             {
                 currentHPText.text = _hp.ToString();
             }
-            if(currentHPShadowText)
+            if (currentHPShadowText)
             {
                 currentHPShadowText.text = _hp.ToString();
             }
@@ -56,7 +60,7 @@ namespace RDUI
         }
         public void SetStatuImg(Sprite _img)
         {
-            if(_img==null)
+            if (_img == null)
             {
                 statuImg.gameObject.SetActive(false);
             }

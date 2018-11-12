@@ -91,7 +91,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 421}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 87
+  controlID: 143
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 421}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 140
+  controlID: 32
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -314,20 +314,20 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 7a2a0000
     m_LastClickedID: 0
-    m_ExpandedIDs: aa77f9ff007af9ffee7af9ff847bf9ffae7bf9ffba7bf9ff283afaff2e3afaff343afaff383afaff3c3afaff5a3afaff963afaffb23afaffb83afaffd23afaffe83afaffec3afaffe43bfafff43bfafff63bfaff043cfaff0c3cfaff103cfaff143cfaff163cfaff1e3cfaff203cfaff243cfaff2e3cfaff9c3cfaffb03cfaffcc3cfaffe03cfafff43cfaff0e3dfaff543dfaff583dfaff6484faff1a8afaff168bfaff708dfaff4e94feff049afeff009bfeff5a9dfeffe6fbffff00000000d85d0000fe5d0000
+    m_ExpandedIDs: a400feff9601feffec03fefffca1feff06a2feff6ea9feff58aafeffaeacfefface4feffe6fbffff00000000d83c0000fe3c0000e04c0000064d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MaxHP
-      m_OriginalName: MaxHP
+      m_Name: player0
+      m_OriginalName: player0
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -377840
+      m_UserData: -89600
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -411,20 +411,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/UI
+    - Assets/Scripts/UI
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefabs/UI
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\Pokemon-Battle-Simulator\Pokemon Battle Simulator
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 38350000
-    m_LastClickedID: 13624
-    m_ExpandedIDs: 00000000be2b0000ec2c0000922e0000842f0000902f0000aa2f000068310000aa320000ca330000f233000056340000983400002a350000be350000c035000078360000e6380000c63900001c3a0000623a0000963b0000b03b00002e3d000000ca9a3b
+    m_SelectedIDs: 56340000
+    m_LastClickedID: 13398
+    m_ExpandedIDs: 00000000be2b0000ec2c0000922e0000842f0000902f0000aa2f000068310000aa320000ca330000f233000056340000983400002a350000bc350000be35000076360000e4380000c43900001a3a0000603a0000943b0000ae3b00002c3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be2b0000ec2c0000922e0000842f0000902f0000aa2f000068310000aa320000ca330000f233000056340000983400002a350000be350000c035000078360000e6380000c63900001c3a0000623a0000963b0000b03b00002e3d0000
+    m_ExpandedIDs: 00000000be2b0000ec2c0000922e0000842f0000902f0000aa2f000068310000aa320000ca330000f233000056340000983400002a350000bc350000be35000076360000e4380000c43900001a3a0000603a0000943b0000ae3b00002c3d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -612,14 +612,14 @@ MonoBehaviour:
     height: 419
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 11276.178144990812
+  lastFramingTime: 632.8421380904351
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: 490.61435, y: 178.21696, z: -7.175279}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 490.61435, y: 178.21696, z: -7.175279}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -651,9 +651,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22
+    m_Target: 1076.6621
     speed: 2
-    m_Value: 22
+    m_Value: 1076.6621
   m_Ortho:
     m_Target: 1
     speed: 2

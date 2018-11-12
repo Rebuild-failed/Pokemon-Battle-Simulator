@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/dotaboy/Desktop/口袋妖怪对战模拟/Pokemon Battle Simulator.exe
+F:/Pokemon-Battle-Simulator/口袋妖怪对战模拟/Pokemon Battle Simulator.exe
 SceneListBegin?
 Assets/Scenes/MainScene.unity
 SceneListEnd?
